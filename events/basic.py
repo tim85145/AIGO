@@ -14,6 +14,7 @@ def about_us_event(event):
         }
     ]
 
+    # 文字訊息
     text_message = TextSendMessage(text = """$ Master SPA $
 專業中醫推拿出身，融合東西方按摩手法
                                    
@@ -23,18 +24,21 @@ def about_us_event(event):
                                    
 -獨立空間：專業乾淨高品質獨立按摩空間。""", emojis=emoji)
     
+    # 貼圖訊息
     sticker_message = StickerSendMessage(
         package_id = '8522',
         sticker_id = '16581271'
     )
+    
+    about_us_img = "https://i.imgur.com/iMZQLjv.jpg"
 
-    about_us_img = "https://i.imgur.com/70A4WdI.jpg"
-
+    # 圖片訊息
     image_message = ImageSendMessage(
         original_content_url = about_us_img,
         preview_image_url = about_us_img
     )
 
+    # 把上面的訊息丟進回復訊息內
     line_bot_api.reply_message(
         event.reply_token,
         [text_message, sticker_message, image_message]
