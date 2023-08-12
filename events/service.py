@@ -10,7 +10,7 @@ services = {
         'duration': '90min',
         'description': '深層肌肉緊繃痠痛、工作壓力和緊繃情緒、身體疲勞者，想解除肌肉緊繃僵硬不是感',
         'price': 2000,
-        'post_url':''
+        'post_url':'https://linecorp.com'
     },
     2: {
         'category': '按摩調理',
@@ -19,7 +19,7 @@ services = {
         'duration': '90min',
         'description': '全身肌肉按摩放鬆與伸展，能夠改善運動後引發的延遲性痠痛，血液循環流通順暢',
         'price': 1500,
-        'post_url':''
+        'post_url':'https://linecorp.com'
     },
     3: {
         'category': '按摩調理',
@@ -28,7 +28,7 @@ services = {
         'duration': '120min',
         'description': '「火山石」成分含有豐富礦物質及獨特的自然能量，溫熱觸感能活絡循環，鬆解疲勞感，舒緩肌肉緊繃',
         'price': 2000,
-        'post_url':''
+        'post_url':'https://linecorp.com'
     },
     4: {
         'category': '臉部護理',
@@ -37,7 +37,7 @@ services = {
         'duration': '90min',
         'description': '臉部淨化 + 粉刺淨化 + 深層保濕繃',
         'price': 2000,
-        'post_url':''
+        'post_url':'https://linecorp.com'
     },
 }
 
@@ -49,7 +49,7 @@ def service_category_event(event):
                 ImageCarouselColumn(
                     image_url='https://i.imgur.com/1M87ufu.jpg',
                     action=PostbackAction(
-                        label='髮型設計服務',
+                        label='按摩調理',
                         display_text='想了解按摩調理',
                         data='action=service&category=按摩調理'
                     )
@@ -57,7 +57,7 @@ def service_category_event(event):
                 ImageCarouselColumn(
                     image_url='https://i.imgur.com/MVk4cTR.jpg',
                     action=PostbackAction(
-                        label='洗髮服務',
+                        label='臉部護理',
                         display_text='想了解臉部護理',
                         data='action=service&category=臉部護理'
                     )
