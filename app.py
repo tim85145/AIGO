@@ -43,6 +43,10 @@ def handle_follow(event):
 
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text = welcome_msg))
 
+@handler.add(UnfollowEvent)
+def handle_unfollow(event):
+    print(event)
+
 
 
 if __name__ == "__main__":
