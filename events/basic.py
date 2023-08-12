@@ -30,7 +30,7 @@ def about_us_event(event):
         sticker_id = '16581271'
     )
     
-    about_us_img = "https://i.imgur.com/iMZQLjv.jpg"
+    about_us_img = "https://i.imgur.com/DdzReRy.png"
 
     # 圖片訊息
     image_message = ImageSendMessage(
@@ -46,10 +46,10 @@ def about_us_event(event):
 
 def location_event(event):
     location_message = LocationSendMessage(
-        title = 'Master SPA',
-        address = '聯成電腦',
-        latitude = 22.63506,
-        longitude = 120.30201
+        title = 'J髮時尚',
+        address = '820高雄市岡山區介壽西路153號內部',
+        latitude = 22.784337712398127,        # 22.784337712398127, 120.28094068650512
+        longitude = 120.28094068650512
     )
 
     line_bot_api.reply_message(

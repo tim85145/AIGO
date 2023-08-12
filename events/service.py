@@ -49,7 +49,7 @@ def service_category_event(event):
                 ImageCarouselColumn(
                     image_url='https://i.imgur.com/1M87ufu.jpg',
                     action=PostbackAction(
-                        label='按摩調理',
+                        label='髮型設計服務',
                         display_text='想了解按摩調理',
                         data='action=service&category=按摩調理'
                     )
@@ -57,7 +57,7 @@ def service_category_event(event):
                 ImageCarouselColumn(
                     image_url='https://i.imgur.com/MVk4cTR.jpg',
                     action=PostbackAction(
-                        label='臉部護理',
+                        label='洗髮服務',
                         display_text='想了解臉部護理',
                         data='action=service&category=臉部護理'
                     )
