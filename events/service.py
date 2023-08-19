@@ -232,6 +232,7 @@ def service_select_time_event(event):
     
 
 def service_confirm_event(event):
+    print("test")
     data = dict(parse_qsl(event.postback.data))
     booking_service = services[int(data['service_id'])]
 
