@@ -45,8 +45,8 @@ def handle_message(event):
         print(profile.picture_url)
 
         user = User(profile.user_id, profile.display_name, profile.picture_url)
-        db.sesstion.add(user)
-        db.sesstion.commit()
+        db.session.add(user)
+        db.session.commit()
 
     print(user.id)
     print(user.line_id)
