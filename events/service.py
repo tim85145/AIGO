@@ -172,3 +172,55 @@ def service_event(event):
 
     line_bot_api.reply_message(
         event.reply_token,[flex_message])
+    
+
+def service_select_date_event(event):
+    data = dict(parse_qsl(event.postback.data))
+
+    weekday_string = {
+        0: '一',
+        1: '二', 
+        2: '三',
+        3: '四',
+        4: '五',
+        5: '六',
+        6: '日',
+    }
+
+    business_day = [1, 2, 3, 4, 5, 6]   #每周上班日
+
+    quick_reply_buttons = []
+
+    today = datetime.datetime.today().date()
+    for x in range(1, 11):
+        day = today + datetime.timedelta(days=x)
+
+        if day.weekday() in business_day:
+            quick_reply_button = QuickReplyButton(
+                action=PostbackAction(label=f"{day} ({weekday_string[day.weekday()]})",
+                                      text=f"我要預約 {day} ({weekday_string[day.weekday()]}) 這天",
+                                      data=f'action=select_time&service_id={data["service_id"]}&date={day}')
+            )
+            quick_reply_buttons.append(quick_reply_button)
+
+    text_message = TextSendMessage(text='請問要預約哪一天？',
+                                   quick_reply=QuickReply(item=quick_reply_buttons))
+    line_bot_api.reply_message(event.reply_token, [text_message])
+
+
+def service_select_time_event(event):
+    data = dict(parse_qsl(event.postback.data))
+
+    available_time = ["11:00", "14:00", "17:00", "20:00"]
+
+    quick_reply_buttons = []
+
+    for time in available_time:
+        quick_reply_button = QuickReplyButton(action=PostbackAction(label=time,
+                                                                    text=f"{time} 這個時段", 
+                                                                    data=f'action=confirm&service_id={data["service_id"]}&date={data["date"]}&time={time}'))
+        quick_reply_buttons.append(quick_reply_button)
+
+    text_message = TextSendMessage(text='請問要預約哪個時段？',
+                                   quick_reply=QuickReply(item=quick_reply_buttons))
+    line_bot_api.reply_message(event.reply_token, [text_message])
