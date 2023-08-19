@@ -1,0 +1,17 @@
+DATABASE_URL
+
+SQLALCHEMY_DATABASE_URI
+
+SQLALCHEMY_TRACK_MODIFICATIONS
+
+#pip install flask_sqlalchemy
+#pip install psycopg2-binary 連線的套件
+#pip install Flask-Migrate 管理資料庫的套件
+
+
+就要在 terminal 中輸入 flask db init 初始化資料庫
+就會自動在專案中建立 migrations 資料夾,接著輸入
+flask db migrate -m "Initial migration." 字串是備註初始化資料庫
+就會在versions資料夾中看到資料庫的版本以及升級和降級的程式碼
+接著第三個指令 flask db upgrade
+

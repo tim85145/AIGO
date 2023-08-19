@@ -1,57 +1,48 @@
-pip install line-bot-sdk
-
-CHANNEL_ACCESS_TOKEN
-
-CHANNEL_SECRET
-
-
-from flask import Flask, request, abort
-
-#from events.basic import *
-# from line_bot_api import *
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, FollowEvent, UnfollowEvent, StickerSendMessage, ImageSendMessage, LocationSendMessage
-)
-
-emoji = [
-        {
-            "index": 0,
-            "productId": "5ac21184040ab15980c9b43a",
-            "emojiId": "225"
-        },
-        {
-            "index": 13,
-            "productId": "5ac21184040ab15980c9b43a",
-            "emojiId": "225"
-        }
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "text",
+        "text": "123",
+        "weight": "bold",
+        "size": "xl"
+      },
+      {
+        "type": "text",
+        "text": "123",
+        "size": "md",
+        "weight": "bold"
+      },
+      {
+        "type": "text",
+        "text": "123",
+        "margin": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+          {
+            "type": "text",
+            "text": "123",
+            "weight": "bold",
+            "size": "xl",
+            "flex": 0
+          }
+        ],
+        "margin": "xl"
+      }
     ]
-
-
-
-@app.route("/callback", methods=['POST'])
-def callback():
-    # get X-Line-Signature header value
-    signature = request.headers['X-Line-Signature']
-
-    # get request body as text
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
-
-    # handle webhook body
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        print("Invalid signature. Please check your channel access token/channel secret.")
-        abort(400)
-
-    return 'OK'
-
-
-
-https://rendersample-dsyc.onrender.com
+  }
+}
