@@ -243,7 +243,7 @@ def service_confirm_event(event):
                 PostbackAction(
                     label='確定',
                     display_text='確定沒問題',
-                    data=f'action=confirmed&service_id={data["service_id"]}&date={"date"}&item={data["time"]}'
+                    data=f'action=confirmed&service_id={data["service_id"]}&date={"date"}&time={data["time"]}'
                 ),
                 MessageEvent(
                     label='重新預約',
