@@ -1,5 +1,11 @@
 from line_bot_api import *
 from urllib.parse import parse_qsl
+import datetime
+
+from extensions import db
+from models.user import User
+from models.reservation import Reservation  #資料寫入資料庫中
+
 
 # 預約相關的功能都會寫在這裡，增加多個服務項目
 services = {
