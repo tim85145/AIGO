@@ -37,11 +37,12 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message_text = str(event.message.text).lower()
-    user = User.query.filter(User.line_id == event.source.user_id).first()
+    user = User.query.filter(User.line_id == event.source.user_id).first()#取得user的第一筆資料
+    #如果沒有user的資料時,才會透過api去取得
     if not user:
-        profile = line_bot_api.get_profile(event.source.user_id)
+        profile = line_bot_api.get_profile(event.source.user_id)#line API中說明get_profile可以取得的資料
         print(profile.display_name)
-        print(profile.user_id)
+        print(profile.user_id)#相同的好友會因為不同的profile而有不同的user_id
         print(profile.picture_url)
 
         user = User(profile.user_id, profile.display_name, profile.picture_url)
@@ -63,7 +64,7 @@ def handle_message(event):
         service_category_event(event)
     
     elif message_text.startswith('*'):
-        if event.source.user_id not in ['Ua6087f825ae670f8e9303a7efd02519d']:
+        if event.source.user_id not in ["Ua6087f825ae670f8e9303a7efd02519d"]:
             return
         if message_text in ['*.data', '*d']:
             list_reservation_event(event)
