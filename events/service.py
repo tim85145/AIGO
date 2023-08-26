@@ -247,7 +247,8 @@ def service_confirm_event(event):
                 ),
                 MessageAction(
                     label='重新預約',
-                    text='我想重新預約'
+                    text='我想重新預約',
+                    data='action=select_date'
                 )
             ]
         )
