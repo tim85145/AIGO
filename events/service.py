@@ -245,10 +245,10 @@ def service_confirm_event(event):
                     display_text='確定沒問題！',
                     data=f'action=confirmed&service_id={data["service_id"]}&date={data["date"]}&time={data["time"]}'
                 ),
-                MessageAction(
+                PostbackAction(
                     label='重新預約',
                     text='我想重新預約',
-                    data='action=select_date'
+                    data='action=reorder'
                 )
             ]
         )
